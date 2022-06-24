@@ -23,6 +23,7 @@ resource "aws_default_security_group" "default_sg" {
     tags = merge(var.tags, tomap({Name = format("%s-%s-default-sg", var.prefix, var.vpc_name)}))
 }
 
+
 # ++++++++++++++++++++++++++++++++++++++++++
 #    SG rule 생성시 Default role value
 # ++++++++++++++++++++++++++++++++++++++++++

@@ -20,7 +20,7 @@ resource "aws_route_table" "public" {
                 var.prefix,
                 var.vpc_name,
                 var.azs[index(var.subnets[each.value.name].cidr, each.key)],
-                var.subnets[each.value.name].ipv4_type,
+                var.subnets[each.value.name].ipv4_type
                 each.value.name
             )
         }),
@@ -29,9 +29,9 @@ resource "aws_route_table" "public" {
 }
 
 # Dynamic route table for private with nat gateway
-resource "aws_route_table" "private" {
+resource "aws_route" "private" {
     vpc_id = aws_vpc.this.id
-    for_each = { for i in local.private_subnets : i.cidr => i if i.rt2natgw == "no" }
+    for_each = { for i in local.private_subnet : i.cidr => i if i.rt2natgw == "no" }
     
     tags = merge(var.tags,
         tomap({
@@ -95,7 +95,7 @@ resource "aws_route_table_association" "private" {
 }
 
 resource "aws_route_table_association" "private_natgw" {
-    for_each = { for i in local.private_subnets : i.cidr => i if i.rt2natgw == "yes" }
+    for_each = { for i in local.private_subnet :i.cidr => i if i.rt2natgw == "yes" }
 
     subnet_id = aws_subnet.this[each.key].id
     route_table_id = aws_route_table.private_with_natgw[each.key].id

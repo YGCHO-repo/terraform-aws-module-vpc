@@ -18,7 +18,7 @@ resource "aws_subnet" "this" {
                 each.value.name
             )
         }),
-    var.subnets[each.value.name].ipv4_type == "private" ? { "Tier" = "private" } : {},
-    var.subnets[each.value.name].ipv4_type == "public" ? { "Tier" = "public" } : {}
+        var.subnets[each.value.name].ipv4_type == "private" ? {"Tier" = "private"} : {},
+        var.subnets[each.value.name].ipv4_type == "public" ? {"Tier" = "public"} : {}
     )
 }

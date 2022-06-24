@@ -35,7 +35,7 @@ variable "azs" {
 variable "enable_internet_gateway" {
     description = "Internet gateway whether or not use"
     type = string
-    default = "false"
+    default = "fales"
 }
 
 variable "enable_nat_gateway" {

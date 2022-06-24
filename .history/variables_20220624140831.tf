@@ -1,7 +1,6 @@
 variable "region" {
     description = "AWS Region name"
     type = string
-    default = ""
 }
 
 variable "account_id" {
@@ -35,13 +34,13 @@ variable "azs" {
 variable "enable_internet_gateway" {
     description = "Internet gateway whether or not use"
     type = string
-    default = "false"
+    default = "fales"
 }
 
 variable "enable_nat_gateway" {
-    description = "Nat gateway whether or not use"
+    description = "Nat gateway wherher or not use"
     type = string
-    default = "false"
+    default = "fales"
 }
 
 variable "tags" {
