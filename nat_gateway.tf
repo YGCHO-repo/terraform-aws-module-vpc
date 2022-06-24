@@ -15,7 +15,7 @@ resource "aws_nat_gateway" "this" {
                         var.prefix,
                         var.vpc_name,
                         var.azs[index(var.subnets[each.value.name].cidr, each.key)],
-                        each.velue.name
+                        each.value.name
                     )
                 })
             )

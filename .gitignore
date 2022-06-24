@@ -32,3 +32,5 @@ override.tf.json
 *.history/*
 .history/
 .history/*
+
+.DS_Store
