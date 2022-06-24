@@ -8,10 +8,10 @@ output "vpc_id" {
     value = aws_vpc.this.id
 }
 
-# output "vpc_cidr_block" {
-#     description = "CIDR block for VPC"
-#     value = aws_subnet.this.cidr_block
-# }
+output "vpc_cidr_block" {
+    description = "CIDR block for VPC"
+    value = aws_subnet.this.cidr_block
+}
 
 output "igw_id" {
     description = "Internet gateway ID"

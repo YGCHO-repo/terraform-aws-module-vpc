@@ -28,7 +28,7 @@ variable "vpc_cidr" {
 
 variable "azs" {
     description = "AWS Region AZ List"
-    type = list
+    type = list()
 }
 
 variable "enable_internet_gateway" {

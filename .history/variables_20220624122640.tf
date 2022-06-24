@@ -31,7 +31,7 @@ variable "azs" {
     type = list
 }
 
-variable "enable_internet_gateway" {
+variable "enable_interner_gateway" {
     description = "Internet gateway whether or not use"
     type = string
     default = "fales"
