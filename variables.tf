@@ -28,7 +28,7 @@ variable "vpc_cidr" {
 
 variable "azs" {
     description = "AWS Region AZ List"
-    type = list()
+    type = list
 }
 
 variable "enable_interner_gateway" {
@@ -50,5 +50,5 @@ variable "tags" {
 
 variable "subnets" {
     description = "Subnet map"
-    default = map(any)
+    type = map(any)
 }
