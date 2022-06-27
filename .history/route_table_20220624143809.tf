@@ -40,7 +40,6 @@ resource "aws_route_table" "private" {
                 var.prefix,
                 var.vpc_name,
                 var.azs[index(var.subnets[each.value.name].cidr, each.key)],
-                var.subnets[each.value.name].ipv4_type,
                 each.value.name
             )
         }),
