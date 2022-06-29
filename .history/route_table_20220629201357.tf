@@ -55,7 +55,7 @@ resource "aws_route_table" "private_with_natgw" {
 
   route {
     cidr_block = "0.0.0.0/0"
-    gateway_id = aws_nat_gateway.this[element(var.subnets["main"].cidr, index(var.subnets[each.value.name].cidr, each.key))].id
+    gateway_id = aws_nat_gateway.this[element(var.subnets["natgw"].cidr, index(var.subnets[each.value.name].cidr, each.key))].id
 
   }
 
