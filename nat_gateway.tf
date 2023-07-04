@@ -1,3 +1,16 @@
+resource "aws_eip" "nat_eip" {
+  count = var.enable_internet_gateway == "true" && var.enable_nat_gateway == "true" ? length(var.azs) : 0
+  vpc   = true
+  tags = merge(var.tags,
+    tomap({ Name = format(
+      "%s-%s-%s-eip",
+      var.prefix,
+      var.vpc_name,
+      var.azs[count.index]) }
+    )
+  )
+}
+
 resource "aws_nat_gateway" "this" {
   for_each = { for i in local.public_subnets : i.cidr => i if i.name == "main" }
 
@@ -20,3 +33,5 @@ resource "aws_nat_gateway" "this" {
     })
   )
 }
+
+
